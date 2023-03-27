@@ -42,7 +42,7 @@ repos:
       - id: tf2docs
         language_version: python3.9
   - repo: https://github.com/bridgecrewio/checkov
-    rev: 2.3.102
+    rev: 2.3.124
     hooks:
       - id: checkov
         files: .
@@ -57,3 +57,9 @@ repos:
     rev: v1.6.23
     hooks:
       - id: actionlint
+  - repo: https://github.com/returntocorp/semgrep
+    rev: v1.14.0
+    hooks:
+      - id: semgrep
+        # See semgrep.dev/rulesets to select a ruleset and copy its URL
+        args: ['--config', 'auto']

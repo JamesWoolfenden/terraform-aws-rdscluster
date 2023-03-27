@@ -8,4 +8,3 @@ resource "aws_backup_selection" "backup_good" {
     aws_rds_cluster.pike.arn
   ]
 }
-

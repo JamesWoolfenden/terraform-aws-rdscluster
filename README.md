@@ -34,7 +34,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.60.0 |
 
 ## Modules
 
@@ -44,53 +44,22 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_db_instance.instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance) | resource |
-| [aws_db_parameter_group.custom](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_parameter_group) | resource |
-| [aws_db_subnet_group.access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group) | resource |
-| [aws_iam_policy.dbaccess](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
-| [aws_secretsmanager_secret.password](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret) | resource |
-| [aws_secretsmanager_secret.username](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret) | resource |
-| [aws_secretsmanager_secret_version.password](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version) | resource |
-| [aws_secretsmanager_secret_version.username](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version) | resource |
-| [aws_security_group.dbaccess](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
+| [aws_backup_plan.pike](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan) | resource |
+| [aws_backup_selection.backup_good](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_selection) | resource |
+| [aws_iam_policy_attachment.backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy_attachment) | resource |
+| [aws_iam_role.backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_rds_cluster.pike](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allowed_cidr"></a> [allowed\_cidr](#input\_allowed\_cidr) | n/a | `list(string)` | n/a | yes |
-| <a name="input_apply_immediately"></a> [apply\_immediately](#input\_apply\_immediately) | Apply changes immediately | `bool` | `false` | no |
-| <a name="input_copy_tags_to_snapshot"></a> [copy\_tags\_to\_snapshot](#input\_copy\_tags\_to\_snapshot) | n/a | `bool` | `true` | no |
-| <a name="input_custom_db_group_name"></a> [custom\_db\_group\_name](#input\_custom\_db\_group\_name) | Your custom DB parameter group mane | `string` | `""` | no |
-| <a name="input_db_subnet_group_name"></a> [db\_subnet\_group\_name](#input\_db\_subnet\_group\_name) | The name of the subnet to use for the database | `string` | `"default"` | no |
-| <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | n/a | `bool` | `true` | no |
-| <a name="input_description"></a> [description](#input\_description) | n/a | `string` | `"Some description"` | no |
-| <a name="input_family"></a> [family](#input\_family) | Needs to be set to your specific db | `string` | `"aurora-postgresql14"` | no |
-| <a name="input_instance"></a> [instance](#input\_instance) | Map of all the variables | `any` | n/a | yes |
-| <a name="input_instance_password"></a> [instance\_password](#input\_instance\_password) | Instance Password | `string` | n/a | yes |
-| <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | The ARN of a KMS key | `string` | n/a | yes |
-| <a name="input_monitoring_interval"></a> [monitoring\_interval](#input\_monitoring\_interval) | Monitoring\_interval in seconds | `number` | `60` | no |
-| <a name="input_monitoring_role_arn"></a> [monitoring\_role\_arn](#input\_monitoring\_role\_arn) | Role for Monitoring - the ARN | `string` | `""` | no |
-| <a name="input_multi_az"></a> [multi\_az](#input\_multi\_az) | Controls multi az | `bool` | `true` | no |
-| <a name="input_publicly_accessible"></a> [publicly\_accessible](#input\_publicly\_accessible) | To comply with security rules CKV\_AWS\_17 this defaults to false | `bool` | `false` | no |
-| <a name="input_rds-cluster_role"></a> [rds-cluster\_role](#input\_rds-cluster\_role) | The IAM ARN of the role for rds-cluster monitoring | `string` | `""` | no |
-| <a name="input_recovery_window_in_days"></a> [recovery\_window\_in\_days](#input\_recovery\_window\_in\_days) | The number of days for schedule of deletion of secret | `number` | `0` | no |
-| <a name="input_subnet_group"></a> [subnet\_group](#input\_subnet\_group) | n/a | `list` | <pre>[<br>  {<br>    "description": "",<br>    "name": "database-1"<br>  }<br>]</pre> | no |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | A list of Subnet ids | `list(any)` | n/a | yes |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | The id of the VPC for the security group and db | `string` | n/a | yes |
+| <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | n/a | `string` | n/a | yes |
+| <a name="input_plan"></a> [plan](#input\_plan) | n/a | <pre>object({<br>    name              = string<br>    target_vault_name = string<br>    schedule          = string<br>  })</pre> | <pre>{<br>  "name": "tf_example_backup",<br>  "schedule": "cron(0 12 * * ? *)",<br>  "target_vault_name": "vault-name"<br>}</pre> | no |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_db_subnet_group"></a> [db\_subnet\_group](#output\_db\_subnet\_group) | n/a |
-| <a name="output_instance"></a> [instance](#output\_instance) | n/a |
-| <a name="output_password_location"></a> [password\_location](#output\_password\_location) | n/a |
-| <a name="output_policy"></a> [policy](#output\_policy) | n/a |
-| <a name="output_security_group"></a> [security\_group](#output\_security\_group) | n/a |
-| <a name="output_username_location"></a> [username\_location](#output\_username\_location) | n/a |
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Policy
@@ -113,15 +82,14 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateSecurityGroup",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DescribeAccountAttributes",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DescribeSecurityGroups",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress"
+                "Backup:CreateBackupPlan",
+                "Backup:CreateBackupSelection",
+                "Backup:DeleteBackupPlan",
+                "Backup:DeleteBackupSelection",
+                "Backup:GetBackupPlan",
+                "Backup:GetBackupSelection",
+                "Backup:ListTags",
+                "Backup:UpdateBackupPlan"
             ],
             "Resource": [
                 "*"
@@ -131,12 +99,7 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
-                "iam:CreatePolicy",
-                "iam:DeletePolicy",
-                "iam:GetPolicy",
-                "iam:GetPolicyVersion",
-                "iam:ListPolicyVersions",
-                "iam:PassRole"
+                "ec2:DescribeAccountAttributes"
             ],
             "Resource": [
                 "*"
@@ -146,19 +109,17 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor2",
             "Effect": "Allow",
             "Action": [
-                "rds-cluster:CreateDBInstance",
-                "rds-cluster:CreateDBParameterGroup",
-                "rds-cluster:CreateDBSubnetGroup",
-                "rds-cluster:DeleteDBInstance",
-                "rds-cluster:DeleteDBParameterGroup",
-                "rds-cluster:DeleteDBSubnetGroup",
-                "rds-cluster:DescribeDBInstances",
-                "rds-cluster:DescribeDBParameterGroups",
-                "rds-cluster:DescribeDBParameters",
-                "rds-cluster:DescribeDBSubnetGroups",
-                "rds-cluster:ListTagsForResource",
-                "rds-cluster:ModifyDBInstance",
-                "rds-cluster:ModifyDBParameterGroup"
+                "iam:AttachRolePolicy",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:DetachRolePolicy",
+                "iam:GetPolicy",
+                "iam:GetRole",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListEntitiesForPolicy",
+                "iam:ListInstanceProfilesForRole",
+                "iam:ListRolePolicies",
+                "iam:PassRole"
             ],
             "Resource": [
                 "*"
@@ -168,12 +129,12 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor3",
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:CreateSecret",
-                "secretsmanager:DeleteSecret",
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetResourcePolicy",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:PutSecretValue"
+                "rds:CreateDBCluster",
+                "rds:DeleteDBCluster",
+                "rds:DescribeDBClusters",
+                "rds:DescribeGlobalClusters",
+                "rds:ListTagsForResource",
+                "rds:ModifyDBCluster"
             ],
             "Resource": [
                 "*"
@@ -207,7 +168,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2022 James Woolfenden
+Copyright © 2023 James Woolfenden
 
 ## License
 

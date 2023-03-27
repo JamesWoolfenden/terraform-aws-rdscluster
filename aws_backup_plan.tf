@@ -8,4 +8,3 @@ resource "aws_backup_plan" "pike" {
     schedule          = var.plan.schedule
   }
 }
-
