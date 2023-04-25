@@ -1,13 +1,13 @@
 # terraform-aws-rds-cluster
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/workflows/Verify/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster)
-[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rds-cluster.svg)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/releases/latest)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-rds-cluster.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/releases/latest)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/workflows/Verify/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster)
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rdscluster.svg)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/releases/latest)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-rds-cluster.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/JamesWoolfenden/terraform-aws-rds-cluster/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rds-cluster&benchmark=CIS+AWS+V1.2)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/JamesWoolfenden/terraform-aws-rdscluster/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rdscluster&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-rds-cluster/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rds-cluster&benchmark=INFRASTRUCTURE+SECURITY)
+[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-rdscluster/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rdscluster&benchmark=INFRASTRUCTURE+SECURITY)
 
 Terraform module - creates an rds-cluster instance. When you select tp create a Postgres DB, this module adds enables _pgaudit_, this is in line with Prowler and Bridgecrew AWS best practices.
 
@@ -20,8 +20,8 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 Include this repository as a module in your existing Terraform code:
 
 ```terraform
-module "rds-cluster" {
-  source            = "JamesWoolfenden/rds-cluster/aws"
+module "rdscluster" {
+  source            = "JamesWoolfenden/rdscluster/aws"
 }
 ```
 
@@ -160,13 +160,13 @@ Check out these related projects.
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/issues).
+File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/issues).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/issues) to report any bugs or file feature requests.
 
 ## Copyrights
 
