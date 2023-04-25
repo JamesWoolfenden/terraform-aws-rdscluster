@@ -14,3 +14,14 @@ variable "plan" {
 variable "kms_key_id" {
   type = string
 }
+
+
+variable "backtrack_window" {
+  type    = number
+  default = 7
+}
+
+variable "backup_retention" {
+  type    = number
+  default = 7
+}

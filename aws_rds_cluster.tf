@@ -3,7 +3,7 @@ resource "aws_rds_cluster" "pike" {
   storage_encrypted                   = true
   iam_database_authentication_enabled = true
   deletion_protection                 = false
-  # backup_retention_period ? 1 is default
+  backup_retention_period             = var.backup_retention
 
   #   allow_major_version_upgrade=var.cluster.major_version
 
@@ -13,7 +13,6 @@ resource "aws_rds_cluster" "pike" {
   # enable_http_endpoint?
   enabled_cloudwatch_logs_exports = ["audit"]
   kms_key_id                      = var.kms_key_id
-
-
+  backtrack_window                = var.backtrack_window
   # vpc_security_group_ids=""
 }

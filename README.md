@@ -1,6 +1,6 @@
 # terraform-aws-rds-cluster
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/workflows/Verify/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rds-cluster.svg)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-rds-cluster.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-rds-cluster/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
@@ -34,7 +34,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.60.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
@@ -54,6 +54,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_backtrack_window"></a> [backtrack\_window](#input\_backtrack\_window) | n/a | `number` | `7` | no |
+| <a name="input_backup_retention"></a> [backup\_retention](#input\_backup\_retention) | n/a | `number` | `7` | no |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | n/a | `string` | n/a | yes |
 | <a name="input_plan"></a> [plan](#input\_plan) | n/a | <pre>object({<br>    name              = string<br>    target_vault_name = string<br>    schedule          = string<br>  })</pre> | <pre>{<br>  "name": "tf_example_backup",<br>  "schedule": "cron(0 12 * * ? *)",<br>  "target_vault_name": "vault-name"<br>}</pre> | no |
 
