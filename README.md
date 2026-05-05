@@ -84,14 +84,14 @@ resource "aws_iam_policy" "terraform_pike" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-                "Backup:CreateBackupPlan",
-                "Backup:CreateBackupSelection",
-                "Backup:DeleteBackupPlan",
-                "Backup:DeleteBackupSelection",
-                "Backup:GetBackupPlan",
-                "Backup:GetBackupSelection",
-                "Backup:ListTags",
-                "Backup:UpdateBackupPlan"
+                "backup:CreateBackupPlan",
+                "backup:CreateBackupSelection",
+                "backup:DeleteBackupPlan",
+                "backup:DeleteBackupSelection",
+                "backup:GetBackupPlan",
+                "backup:GetBackupSelection",
+                "backup:ListTags",
+                "backup:UpdateBackupPlan"
             ],
             "Resource": [
                 "*"
@@ -113,6 +113,7 @@ resource "aws_iam_policy" "terraform_pike" {
             "Action": [
                 "iam:AttachRolePolicy",
                 "iam:CreateRole",
+                "iam:CreateServiceLinkedRole",
                 "iam:DeleteRole",
                 "iam:DetachRolePolicy",
                 "iam:GetPolicy",
