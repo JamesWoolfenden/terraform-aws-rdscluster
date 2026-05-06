@@ -1,13 +1,11 @@
-# terraform-aws-rds-cluster
+# terraform-aws-rdscluster
 
 [![Build Status](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/workflows/Verify/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-rdscluster.svg)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/releases/latest)
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-rds-cluster.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/releases/latest)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-rdscluster.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-rdscluster/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/JamesWoolfenden/terraform-aws-rdscluster/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rdscluster&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-rdscluster/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-rdscluster&benchmark=INFRASTRUCTURE+SECURITY)
 
 Terraform module - creates an rds-cluster instance. When you select tp create a Postgres DB, this module adds enables _pgaudit_, this is in line with Prowler and Bridgecrew AWS best practices.
 
@@ -33,7 +31,7 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
@@ -43,7 +41,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_backup_plan.pike](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan) | resource |
 | [aws_backup_selection.backup_good](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_selection) | resource |
 | [aws_iam_policy_attachment.backup](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy_attachment) | resource |
@@ -53,11 +51,11 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_backtrack_window"></a> [backtrack\_window](#input\_backtrack\_window) | n/a | `number` | `7` | no |
 | <a name="input_backup_retention"></a> [backup\_retention](#input\_backup\_retention) | n/a | `number` | `7` | no |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | n/a | `string` | n/a | yes |
-| <a name="input_plan"></a> [plan](#input\_plan) | n/a | <pre>object({<br>    name              = string<br>    target_vault_name = string<br>    schedule          = string<br>  })</pre> | <pre>{<br>  "name": "tf_example_backup",<br>  "schedule": "cron(0 12 * * ? *)",<br>  "target_vault_name": "vault-name"<br>}</pre> | no |
+| <a name="input_plan"></a> [plan](#input\_plan) | n/a | <pre>object({<br/>    name              = string<br/>    target_vault_name = string<br/>    schedule          = string<br/>  })</pre> | <pre>{<br/>  "name": "tf_example_backup",<br/>  "schedule": "cron(0 12 * * ? *)",<br/>  "target_vault_name": "vault-name"<br/>}</pre> | no |
 
 ## Outputs
 
